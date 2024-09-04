@@ -233,6 +233,9 @@ body {
   overflow: hidden;
   width: 370px;
 }
+#article .article-content-container .card .card-header {
+  width: 100%;
+}
 #article .article-content-container .card .card-header img {
   width: 100%;
   height: 200px;
@@ -313,7 +316,6 @@ body {
     flex-wrap: wrap;
     align-items: center;
     margin-top: 18px;
-    background-color: red;
   }
 }
 @media (max-width: 768px) {
