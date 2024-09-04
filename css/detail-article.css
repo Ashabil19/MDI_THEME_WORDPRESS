@@ -1,0 +1,329 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #333; */
+  padding: 10px 30px;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  margin-right: 100px;
+  /* border: 1px solid red; */
+}
+
+.navbar .hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* hamburger */
+.hamburger {
+  color: #292929;
+  font-size: 24px; /* Sesuaikan ukuran font sesuai kebutuhan */
+  cursor: pointer;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  position: relative;
+}
+
+.nav-links a {
+  color: #292929;
+  padding: 10px;
+  text-decoration: none;
+  transition: 200ms;
+}
+
+.nav-links a:hover {
+  color: red;
+  transition: 200ms;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  /* border: 1px solid red; */
+  margin-left: 100px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background-color: white;
+  z-index: 1000;
+  display: none;
+  max-height: 150px;
+  overflow-y: auto;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-icon {
+  width: 8px;
+  height: 8px;
+  /* background-color: red; */
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  position: absolute;
+  top: 12px;
+  transform: rotate(134deg);
+  left: 69px;
+}
+.dropdown-icon:hover {
+  border-top: 2px solid red;
+  border-right: 2px solid red;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  /* display: inline-block; */
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: black;
+  margin-right: 8px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 28px;
+  left: -40px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 8px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* CSS */
+#droped-down {
+  width: 80%;
+  background-color: red;
+  height: 400px;
+  position: absolute;
+  top: 70px;
+  left: -5000px;
+  transition: left 0.3s;
+}
+
+#animateButton:hover + #droped-down {
+  left: 200px; /* Nilai setelah animasi */
+}
+#detail-article {
+  padding: 10px 150px;
+  box-sizing: border-box;
+  /* background-color: pink; */
+  height: max-content;
+  width: 100%;
+}
+.detail-article-pages-name {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#detail-article article {
+  width: 100%;
+  height: fit-content;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#detail-article .head-article {
+  /* background-color: azure; */
+  width: 50%;
+  height: 200px;
+  text-align: center;
+  margin-top: 70px;
+}
+#detail-article .head-article .badges {
+  background-color: rgb(204, 204, 204);
+  padding: 8px 24px;
+  /* width: 50px; */
+  width: fit-content;
+  margin: auto;
+  border-radius: 16px;
+  color: #5d5d5d;
+}
+#detail-article article .head-article h1 {
+  font-size: 32px;
+}
+#detail-article article .head-article .article-date {
+  color: gray;
+}
+#detail-article article .article-content-img {
+  width: 90%;
+  height: max-content;
+  /* background-color: red; */
+  text-align: center;
+}
+#detail-article article .article-paragraph {
+  width: 80%;
+  /* background-color: yellow; */
+  text-align: justify;
+  line-height: 1.4;
+}
+.related-product-title {
+  margin-top: 80px;
+}
+#detail-article .related-product {
+  width: 100%;
+  height: max-content;
+  /* background-color: rebeccapurple; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#detail-article .related-product .product-card {
+  width: 250px;
+  height: 300px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 16px;
+}
+#detail-article .related-product .product-card .product-card-img {
+  width: 100%;
+  height: 70%;
+}
+#detail-article .related-product .product-card .product-card-img img {
+  object-fit: cover;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: #ffff;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 1001;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+    width: 100%;
+  }
+  .nav-links a:hover {
+    color: red;
+  }
+
+  .navbar .hamburger {
+    display: block;
+    font-size: 30px;
+  }
+
+  .img-logo {
+    width: 200px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .dropdown-icon {
+    top: 16px;
+    transform: rotate(134deg);
+    left: 62px;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 34px;
+    left: -8px;
+  }
+  #detail-article {
+    padding: 5px;
+  }
+  #detail-article .head-article {
+    width: 100%;
+  }
+  #detail-article article .head-article h1 {
+    font-size: 28px;
+  }
+  #detail-article article .article-content-img {
+    width: 100%;
+    text-align: center;
+  }
+  #detail-article article .article-content-img img {
+    width: 90vw;
+  }
+  .related-product-title {
+    margin-top: 80px;
+    text-align: center;
+  }
+  #detail-article .related-product {
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+  }
+}
