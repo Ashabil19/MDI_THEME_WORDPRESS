@@ -4,25 +4,25 @@ Template Name: Articles Page
 */
 get_header(); ?>
 
+<div class="article-pages-name">
+    <h5><a style='color:black; text-decoration:none;' href="<?php echo home_url(); ?>">Home</a></h5>
+    <span>&#10095;</span>
+
+    <?php if (is_category() || is_single()) : ?>
+        <h5><a style='color:black; text-decoration:none;' href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Articles</a></h5>
+        <span>&#10095;</span>
+    <?php endif; ?>
+
+    <?php if (is_single()) : ?>
+        <h5><?php the_title(); ?></h5>
+    <?php elseif (is_category()) : ?>
+        <h5><?php single_cat_title(); ?></h5>
+    <?php elseif (is_page()) : ?>
+        <h5><?php the_title(); ?></h5>
+    <?php endif; ?>
+</div>
 <section id="article">
 
-    <div class="article-pages-name">
-        <h5><a style='color:black; text-decoration:none;' href="<?php echo home_url(); ?>">Home</a></h5>
-        <span>&#10095;</span>
-        
-        <?php if (is_category() || is_single()) : ?>
-            <h5><a style='color:black; text-decoration:none;' href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Articles</a></h5>
-            <span>&#10095;</span>
-        <?php endif; ?>
-        
-        <?php if (is_single()) : ?>
-            <h5><?php the_title(); ?></h5>
-        <?php elseif (is_category()) : ?>
-            <h5><?php single_cat_title(); ?></h5>
-        <?php elseif (is_page()) : ?>
-            <h5><?php the_title(); ?></h5>
-        <?php endif; ?>
-    </div>
 
 
     <div class="article-head">
@@ -50,7 +50,7 @@ get_header(); ?>
         $query = new WP_Query($args);
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post(); ?>
-                <a style='color:#292929; text-decoration:none;'href="<?php the_permalink(); ?>" class="card-link">
+                <a style='color:#292929; text-decoration:none;' href="<?php the_permalink(); ?>" class="card-link">
                     <div class="card">
                         <div class="card-header">
                             <?php if (has_post_thumbnail()) : ?>
@@ -66,7 +66,7 @@ get_header(); ?>
                                 <?php
                                 // Mengambil judul post
                                 $title = get_the_title();
-                                
+
                                 // Memisahkan judul menjadi array berdasarkan spasi
                                 $words = explode(' ', $title);
 
@@ -81,7 +81,7 @@ get_header(); ?>
                                 ?>
                             </h4>
                             <p style='text-align:left;' class="card-text">
-                                <?php 
+                                <?php
                                 // Mengambil excerpt dari post dan memotongnya menjadi 8 kata
                                 $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
 
@@ -105,7 +105,7 @@ get_header(); ?>
 
                     </div>
                 </a>
-            <?php endwhile;
+        <?php endwhile;
         else :
             echo '<p>No articles found.</p>';
         endif;
@@ -121,7 +121,7 @@ get_header(); ?>
         <div class="prev-paggination">
             <?php if (get_previous_posts_link()) : ?>
                 <?php previous_posts_link('<img src="' . get_template_directory_uri() . '/assets/img/product-pages/prev-pag-icon.svg" alt="" /> <span class="previous-link">Previous</span>'); ?>
-                <?php else : ?>
+            <?php else : ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/prev-pag-icon.svg" alt="" />
                 <span style="color:#292929; text-decoration:none;">Previous</span>
             <?php endif; ?>
@@ -148,12 +148,12 @@ get_header(); ?>
             <?php if (get_next_posts_link(null, $query->max_num_pages)) : ?>
                 <?php next_posts_link('<span style="color:#292929; text-decoration:none;" >Next</span> <img src="' . get_template_directory_uri() . '/assets/img/product-pages/next-pag-icon.svg" alt="" />', $query->max_num_pages); ?>
             <?php else : ?>
-                <span style="color:#292929; text-decoration:none;" >Next</span>
+                <span style="color:#292929; text-decoration:none;">Next</span>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/next-pag-icon.svg" alt="" />
             <?php endif; ?>
         </div>
 
-        
+
     </div>
 </section>
 
