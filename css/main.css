@@ -1,11 +1,10 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  
 }
 
 .navbar {
@@ -120,8 +119,6 @@ body {
   transform: rotate(134deg);
   left: 72px;
 }
-
-
 
 .dropdown-icon:hover {
   border-top: 2px solid red;
@@ -330,11 +327,19 @@ body {
 
 /* product */
 #product {
-  padding: 0px 30px;
+  padding: 0px 180px;
+  box-sizing: border-box;
   text-align: center;
   height: fit-content;
   margin-top: 100px;
   margin-bottom: 240px;
+}
+#product .product-home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px; /* Batasi lebar grid */
+  margin: 0 auto;
 }
 .product-container {
   display: grid;
@@ -389,7 +394,7 @@ body {
   position: relative;
 }
 
-.slide-img{
+.slide-img {
   width: 100%;
   /* height: 100%; */
 }
@@ -781,8 +786,15 @@ form.email-input-footer {
     margin-top: 100px;
     text-align: center;
   }
+  #product .product-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .product-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
   .container-news-article {
     flex-direction: column;

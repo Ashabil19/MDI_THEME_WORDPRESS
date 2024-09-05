@@ -90,7 +90,7 @@
 
 <section id="product" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h1 style="text-align: center;">Our Product</h1>
-    <div style="display:flex; justify-content:center; align-items:center">
+    <div class="product-home">
         <?php
         $args = array(
             'post_type' => 'product',
@@ -107,7 +107,7 @@
                     <?php
                     $gambar = get_field('gambar_product');
                     if ($gambar): ?>
-                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_title(); ?>" style="width: 200px; height:300p;" />
+                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_title(); ?>" style="width: 200px; height:300px;" />
                     <?php endif; ?>
                     <div class="card-txt">
                         <h1 class="title"><?php the_title(); ?></h1>
@@ -256,10 +256,4 @@
 
     </div>
 </section>
-
-
-
-
-
-
 <?php get_footer(); ?>
