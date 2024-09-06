@@ -375,6 +375,7 @@ body {
   }
   #article {
     padding: 20px;
+    /* background-color: #292929; */
   }
   #article .article-head {
     width: 100%;
