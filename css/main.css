@@ -111,7 +111,6 @@ body {
 .dropdown-icon {
   width: 8px;
   height: 8px;
-  /* background-color: red; */
   border-top: 1px solid black;
   border-right: 1px solid black;
   position: absolute;
@@ -124,18 +123,12 @@ body {
   border-top: 2px solid red;
   border-right: 2px solid red;
 }
-.dropdown-icon:hover {
-  border-top: 2px solid red;
-  border-right: 2px solid red;
-}
 
 .dropdown {
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
-  /* display: inline-block; */
 }
 
 .dropbtn {
@@ -170,6 +163,31 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* For nested (child) dropdowns */
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-item .dropdown-subcontent {
+  display: none;
+  position: absolute;
+  left: 160px; /* Adjust this for the width of the parent dropdown */
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item:hover .dropdown-subcontent {
+  display: block;
+}
+
+.dropdown-subcontent a {
+  padding: 8px 12px;
 }
 
 /* CSS */
