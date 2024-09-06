@@ -47,9 +47,9 @@
     </div>
 
 
-    <div class="product-container">
+    <div class="product-container"> 
       <div class="product-content-container">
-        <h2>Vehicle Mirror</h2>
+        <h2>Vehicle Mirror </h2>
         <div class="product-card-container">
           <?php
           $args = array(
