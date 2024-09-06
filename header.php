@@ -53,7 +53,7 @@
                             // Link for the parent category
                             $category_link = get_category_link($category->term_id);
                             echo '<div class="dropdown-item">';
-                            echo '<a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
+                            echo '<a style="text-align:start;" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
 
                             // Check for child categories
                             $child_args = array(
@@ -68,7 +68,7 @@
                                 echo '<div class="dropdown-subcontent">';
                                 foreach ($child_categories as $child) {
                                     $child_link = get_category_link($child->term_id);
-                                    echo '<a href="' . esc_url($child_link) . '">' . esc_html($child->name) . '</a>';
+                                    echo '<a style="text-align:start;" href="' . esc_url($child_link) . '">' . esc_html($child->name) . '</a>';
                                 }
                                 echo '</div>'; // Close child dropdown
                             }
