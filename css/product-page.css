@@ -560,5 +560,6 @@ form.email-input-footer {
     display: flex;
     font-size: 12px;
     gap: 4px;
+    /* background-color: black; */
   }
 }
