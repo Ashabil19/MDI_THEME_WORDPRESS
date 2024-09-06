@@ -1,12 +1,12 @@
-<?php get_header();?>
+<?php get_header(); ?>
 
 
 
 
-    <section id="hero" style="height:100vh;">
+<section id="hero" style="height:100vh;">
 
 
-<!-- 
+    <!-- 
     <div class="carousel">
         <div class="carousel-slides">
             <div class="slide active">
@@ -20,14 +20,14 @@
         <button class="next" onclick="nextSlide()">&#10095;</button>
     </div> -->
 
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
 
     <div class="carousel">
         <div class="carousel-slides">
@@ -49,7 +49,7 @@
                             <img class="slide-img" src="<?php echo esc_url($slider_image); ?>" alt="<?php the_title(); ?>">
                             <p><?php the_content(); ?></p>
                         </div>
-                    <?php endif;
+                <?php endif;
                 endwhile;
                 wp_reset_postdata();
             else : ?>
@@ -62,14 +62,14 @@
 
 
 
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
-<!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
+    <!-- ================================================================================== -->
 
 
 
@@ -87,85 +87,47 @@
 
 <section class="separator"></section>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <section id="product" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-    <h1 style="text-align: center;">Our Product</h1>  
-            <div style="display:flex; justify-content:center; align-items:center">
-                <?php
-                $args = array(
-                    'post_type' => 'product',
-                        'posts_per_page' => 4
-                );
-                
-                // The Query
-                $query = new WP_Query($args);
-                
-                // The Loop
-                if ($query->have_posts()) :
-                    while ($query->have_posts()) : $query->the_post(); ?>
-                            <div class="card" style='box-shadow:none;' >
-                                <?php
-                                    $gambar = get_field('gambar_product');
-                                    if ($gambar): ?>
-                                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_title(); ?>" style="width: 200px; height:300p;" />
-                                    <?php endif; ?>
-                                <div class="card-txt">
-                                    <h1 class="title"><?php the_title(); ?></h1>
-                                </div>
-                            </div>
-                    <?php endwhile;
-                endif;
-                wp_reset_postdata();
-                ?>
-            </div>
-=======
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-<section id="product" data-aos="fade-up"
-data-aos-anchor-placement="top-bottom">
     <h1 style="text-align: center;">Our Product</h1>
-    <div class="product-container">
-        <div class="item">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product1.png">
-            <span class="product-name">El - H800</span>
-        </div>
-        <div class="item">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product2.png">
-            <span class="product-name">EI-MD2000A Walk-through Metal <br> Detector Gate</span>
-        </div>
-        <div class="item">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product3.png">
-            <span class="product-name">Super Scanner V</span>
-        </div>
-        <div class="item">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product4.png">
-            <span class="product-name">EI-SD300 Liquid</span>
-        </div>
+    <div class="product-home">
+        <?php
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => 4
+        );
+
+        // The Query
+        $query = new WP_Query($args);
+
+        // The Loop
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post(); ?>
+                <div class="card" style='box-shadow:none;'>
+                    <?php
+                    $gambar = get_field('gambar_product');
+                    if ($gambar): ?>
+                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_title(); ?>" style="width: 200px; height:300px;" />
+                    <?php endif; ?>
+                    <div class="card-txt">
+                        <h1 class="title"><?php the_title(); ?></h1>
+                    </div>
+                </div>
+        <?php endwhile;
+        endif;
+        wp_reset_postdata();
+        ?>
     </div>
+
     <button class="product-btn">View All</button>
->>>>>>> parent of b7be076 (Cleaning the code)
+
 </section>
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <section id="news-article" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h1 style="font-size: 48px; margin-top:200px;">News Article</h1>
-=======
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-<section id="news-article" data-aos="fade-up"
-data-aos-anchor-placement="top-bottom">
-    <h1 style="font-size: 54px;">News Article</h1>
->>>>>>> parent of b7be076 (Cleaning the code)
     <div class="container-news-article">
         <!-- slider Attachment -->
         <div class="news-img"></div>
@@ -181,12 +143,12 @@ data-aos-anchor-placement="top-bottom">
                 <?php
                 $args = array(
                     'post_type' => 'post',
-                    'posts_per_page' => -1, 
+                    'posts_per_page' => -1,
                 );
-                
+
                 // The Query
                 $query = new WP_Query($args);
-                
+
                 // The Loop
                 if ($query->have_posts()) :
                     while ($query->have_posts()) : $query->the_post(); ?>
@@ -199,7 +161,7 @@ data-aos-anchor-placement="top-bottom">
                             <div class="card-txt">
                                 <h1 class="title"><?php the_title(); ?></h1>
                                 <p style='text-align:left; ' class="card-text">
-                                    <?php 
+                                    <?php
                                     $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
                                     if (!empty($excerpt)) {
                                         echo esc_html($excerpt);
@@ -215,9 +177,9 @@ data-aos-anchor-placement="top-bottom">
                                 </div>
                             </div>
                         </div>
-                    <?php endwhile;
+                <?php endwhile;
                 endif;
-                
+
                 // Reset Post Data
                 wp_reset_postdata();
                 ?>
@@ -229,28 +191,16 @@ data-aos-anchor-placement="top-bottom">
     </div>
 </section>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<section id="contact-us" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-=======
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
+
+
+
 
 
 
 
 <section id="contact-us" data-aos="fade-up"
-data-aos-anchor-placement="top-bottom">
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of b7be076 (Cleaning the code)
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
-=======
->>>>>>> parent of b7be076 (Cleaning the code)
+    data-aos-anchor-placement="top-bottom">
+
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">
         <form action="" class="contact-us-form">
@@ -298,14 +248,6 @@ data-aos-anchor-placement="top-bottom">
                 <a href="">(021) 8690 6777</a>
             </div>
             <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/fax-icon.png" alt="">
-                <a href="">(021) 8690 6770</a>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/fax-icon.png" alt="">
-                <a href="">(021) 86906771</a>
-            </div>
-            <div class="contact-us-icon">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/mail-icon.svg" alt="">
                 <a href="">sales@metaldetectorindonesia.com</a>
             </div>
@@ -314,10 +256,4 @@ data-aos-anchor-placement="top-bottom">
 
     </div>
 </section>
-
-    
-    
-
-
-
-<?php get_footer();?>
+<?php get_footer(); ?>
