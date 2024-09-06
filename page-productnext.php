@@ -48,48 +48,41 @@
 
 
     <div class="product-container">
-        <div class="product-content-container">
-          <h2>Vehicle Mirror</h2>
-          <div class="product-card-container">
-            <?php
-            $args = array(
-              'post_type' => 'product',
-              'posts_per_page' => 6,
-              'paged' => max(1, get_query_var('paged')),
-            );
+      <div class="product-content-container">
+        <h2>Vehicle Mirror</h2>
+        <div class="product-card-container">
+          <?php
+          $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => 6,
+            'paged' => max(1, get_query_var('paged')),
+          );
 
-            $query = new WP_Query($args);
-            if ($query->have_posts()) :
-              while ($query->have_posts()) : $query->the_post(); ?>
-                <div class="products-card">
-                  <a href="<?php echo home_url('/productdetail/?product_id=') . get_the_ID(); ?>" style="text-decoration: none; color: inherit;">
-                    <div class="product-card-img">
-                      <?php
-                      $gambar = get_field('gambar_product');
-                      if ($gambar) : ?>
-                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_field('judul_product'); ?>" style="width: 100%" />
-                      <?php else : ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/default-product.png" alt="<?php the_title(); ?>" style="width: 100%" />
-                      <?php endif; ?>
-                    </div>
-                    <div class="product-card-content">
-                      <h4><?php the_title(); ?></h4>
-                      <button>Details & Order</button>
-                    </div>
-                  </a>
+          $query = new WP_Query($args);
+          if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post(); ?>
+              <div class="products-card">
+                <div class="product-card-img">
+                  <?php
+                  $gambar = get_field('gambar_product');
+                  if ($gambar) : ?>
+                    <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_field('judul_product'); ?>" style="width: 100%" />
+                  <?php endif; ?>
                 </div>
-            <?php endwhile;
-            else :
-              echo '<p>No products found.</p>';
-            endif;
+                <div class="product-card-content">
+                  <h4><?php the_title(); ?></h4>
+                  <button>Details & Order</button>
+                </div>
+              </div>
+          <?php endwhile;
+          else :
+            echo '<p>No products found.</p>';
+          endif;
 
-            wp_reset_postdata();
-            ?>
-          </div>
+          wp_reset_postdata();
+          ?>
         </div>
       </div>
-
-
       <!-- Pagination Controls -->
 
 
