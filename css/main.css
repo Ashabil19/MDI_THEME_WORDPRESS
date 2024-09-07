@@ -208,21 +208,11 @@ body {
 #hero {
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  height: 600px;
+  justify-content: start;
+  margin-top: 30px;
   flex-direction: column;
-  /* background-color: red; */
-}
-/* body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  margin: 0;
-} */
+}
 
 .carousel {
   position: relative;
@@ -245,7 +235,7 @@ body {
 
 .slide {
   min-width: 100%;
-  background-color: #3498db;
+  /* background-color: #3498db; */
   color: white;
   text-align: center;
   /* padding: 60px 20px; */
@@ -350,7 +340,6 @@ body {
   text-align: center;
   height: fit-content;
   margin-top: 100px;
-  margin-bottom: 240px;
 }
 #product .product-home {
   display: grid;
@@ -795,7 +784,7 @@ form.email-input-footer {
     height: 200px;
   }
   #hero {
-    height: 440px;
+    height: auto;
   }
 
   #product {

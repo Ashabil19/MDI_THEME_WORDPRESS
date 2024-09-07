@@ -4,31 +4,6 @@
 
 
 <section id="hero" style="height:100vh;">
-
-
-    <!-- 
-    <div class="carousel">
-        <div class="carousel-slides">
-            <div class="slide active">
-                <p>Explore the world of treasures with Metal Detectors Indonesia. Where innovation meets reliability.</p>
-            </div>
-            <div class="slide">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi magni quibusdam nobis blanditiis corrupti provident! Veritatis recusandae voluptate velit culpa repudiandae obcaecati dolore corrupti, dolorum magni tempora? Quidem, ut enim?</div>
-            <div class="slide">Slide 3</div>
-            <div class="slide">Slide 4</div>
-        </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-    </div> -->
-
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-
     <div class="carousel">
         <div class="carousel-slides">
             <?php
@@ -59,24 +34,14 @@
         <button class="prev" onclick="prevSlide()">&#10094;</button>
         <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-
-
-
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-
-
-
-
     <div class="btn-section">
         <button class="buy-now">Buy Now</button>
     </div>
+
+
+
+     <!-- List mau diisi dengan apa ?? -->
+            
 
     <div class="page-section">
         <a href="#" class="btn-pages">List 1</a>
