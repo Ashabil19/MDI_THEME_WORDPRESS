@@ -220,5 +220,21 @@
         </div> -->
 
     </div>
+
+    <script>
+    function validateForm() {
+        var firstName = document.getElementById('first_name').value;
+        var lastName = document.getElementById('last_name').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone_number').value;
+        var message = document.getElementById('message').value;
+
+        if (firstName == "" || lastName == "" || email == "" || phone == "" || message == "") {
+            alert("Please fill in all required fields.");
+            return false;
+        }
+        return true;
+    }
+</script>
 </section>
 <?php get_footer(); ?>
