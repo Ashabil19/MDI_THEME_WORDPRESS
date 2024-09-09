@@ -155,48 +155,48 @@
 
     </div>
 </section>
-
-
-
-
-
-
-
-
 <section id="contact-us" data-aos="fade-up"
     data-aos-anchor-placement="top-bottom">
 
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">
-        <form action="" class="contact-us-form">
-            <div class="form-head">
-                <h3>How can we help</h3>
+
+
+
+
+    <form action="" method="post" class="contact-us-form">
+        <div class="form-head">
+            <h3>How can we help</h3>
+        </div>
+        <div class="name-input">
+            <div class="first-name">
+                <label for="firstName">First Name</label>
+                <input type="text" name="first_name" id="firstName" placeholder="First Name" required>
             </div>
-            <div class="name-input">
-                <div class="first-name">
-                    <label for="fisrtName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
-                </div>
-                <div class="last-name">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" id="lastName" name="lastName" placeholder="Last Name">
-                </div>
+            <div class="last-name">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="last_name" id="lastName" placeholder="Last Name" required>
             </div>
-            <div class="email-input">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email">
-            </div>
-            <div class="number">
-                <label for="number">Phone Number</label>
-                <input type="number" id="number" name="number" placeholder="Number">
-            </div>
-            <div class="message">
-                <label for="message">Message</label>
-                <textarea name="message" id="message"></textarea>
-            </div>
-            <button type="submit" class="submit">Submit</button>
-        </form>
-        <div class="contact-us-content">
+        </div>
+        <div class="email-input">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="number">
+            <label for="phone_number">Phone Number</label>
+            <input type="number" name="phone_number" id="phone_number" placeholder="Number" required>
+        </div>
+        <div class="message">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" placeholder="Your message" required></textarea>
+        </div>
+        <button type="submit" class="submit">Submit</button>
+    </form>
+
+
+
+
+        <!-- <div class="contact-us-content">
             <div class="contact-us-content head">
                 <h3>Hubungi Kami</h3>
             </div>
@@ -217,7 +217,7 @@
                 <a href="">sales@metaldetectorindonesia.com</a>
             </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2247646531337!2d106.92011787475069!3d-6.234074893754143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5136fb5c4f%3A0xf3d086329e513d9c!2sPT%20TAHARICA!5e0!3m2!1sen!2sid!4v1724816005163!5m2!1sen!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        </div> -->
 
     </div>
 </section>
