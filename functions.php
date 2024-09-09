@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             )
         );
 
+        echo "<script>alert('Form submitted')</script>";
+
         // Jika penyimpanan berhasil
         // if ($wpdb->insert_id) {
         //     echo '<p>Thank you for your message!</p>';
