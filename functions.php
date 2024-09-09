@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($wpdb->insert_id) {
             // Email telah disimpan di database, sekarang kirim email notifikasi
+            // Email telah disimpan di database, sekarang kirim email notifikasi
             $mail = new PHPMailer(true);
 
             try {
@@ -47,17 +48,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
-                // Set pengirim dan penerima email
-                $mail->setFrom($email, $first_name . ' ' . $last_name); // Pengirim adalah pengguna yang mengisi form
+                // Set pengirim email
+                // $mail->setFrom('ashabilsyauqi@gmail.com', 'Contact Form'); // Tetapkan email kamu sendiri sebagai pengirim
+                $mail->setFrom($email, $first_name . ' ' . $last_name); // Tetapkan email kamu sendiri sebagai pengirim
+
+                // Tambahkan Reply-To dari pengguna yang submit form
+                $mail->addReplyTo($email, $first_name . ' ' . $last_name); // Alamat email pengguna yang mengisi form
+
+                // Set penerima email (admin)
                 $mail->addAddress('ashabilsyauqi@gmail.com', 'Ashabil Syauqi'); // Email tujuan (admin)
 
                 // Set isi email
                 $mail->isHTML(true); // Email menggunakan format HTML
                 $mail->Subject = 'New Contact Form Submission';
                 $mail->Body    = "<strong>Name:</strong> $first_name $last_name <br>
-                                  <strong>Email:</strong> $email <br>
-                                  <strong>Phone:</strong> $phone_number <br>
-                                  <strong>Message:</strong> <br> $message";
+                                <strong>Email:</strong> $email <br>
+                                <strong>Phone:</strong> $phone_number <br>
+                                <strong>Message:</strong> <br> $message";
 
                 // Kirim email
                 $mail->send();
@@ -65,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
+
 
             // Redirect setelah submit berhasil
             wp_redirect(home_url('/#contact-us')); // Ganti URL sesuai kebutuhan
