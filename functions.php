@@ -1,8 +1,11 @@
 <?php
+// Include Composer's autoload
+require_once __DIR__ . '/vendor/autoload.php'; // Sesuaikan path sesuai dengan lokasi autoload.php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Akses ke database global
 global $wpdb;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -31,9 +34,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         );
 
         if ($wpdb->insert_id) {
+            // Email telah disimpan di database, sekarang kirim email notifikasi
+            $mail = new PHPMailer(true);
+
+            try {
+                // Set PHPMailer untuk menggunakan SMTP
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com'; // Ganti dengan SMTP host kamu
+                $mail->SMTPAuth = true;
+                $mail->Username = 'ashabilsyauqi@gmail.com'; // Ganti dengan username email SMTP kamu
+                $mail->Password = 'fbfrolfhozvqoayj'; // Ganti dengan password atau App password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                // Set pengirim dan penerima email
+                $mail->setFrom($email, $first_name . ' ' . $last_name); // Pengirim adalah pengguna yang mengisi form
+                $mail->addAddress('ashabilsyauqi@gmail.com', 'Ashabil Syauqi'); // Email tujuan (admin)
+
+                // Set isi email
+                $mail->isHTML(true); // Email menggunakan format HTML
+                $mail->Subject = 'New Contact Form Submission';
+                $mail->Body    = "<strong>Name:</strong> $first_name $last_name <br>
+                                  <strong>Email:</strong> $email <br>
+                                  <strong>Phone:</strong> $phone_number <br>
+                                  <strong>Message:</strong> <br> $message";
+
+                // Kirim email
+                $mail->send();
+                echo '<p>Email notification has been sent.</p>';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+
             // Redirect setelah submit berhasil
-            echo "<script>alert('Form Submitted')</script>";
-            wp_redirect(home_url('/#contact-us')); // Ganti URL tujuan sesuai kebutuhan
+            wp_redirect(home_url('/#contact-us')); // Ganti URL sesuai kebutuhan
             exit;
         } else {
             echo '<p>There was an error saving your message. Please try again.</p>';
@@ -43,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<p>Please fill in all required fields.</p>';
     }
 }
+
 
 
 
