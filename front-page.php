@@ -155,86 +155,142 @@
 
     </div>
 </section>
-<section id="contact-us" data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom">
-
+<section id="contact-us" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">
-
-
-
-
-    <form action="" method="post" class="contact-us-form">
-        <div class="form-head">
-            <h3>How can we help</h3>
-        </div>
-        <div class="name-input">
-            <div class="first-name">
-                <label for="firstName">First Name</label>
-                <input type="text" name="first_name" id="firstName" placeholder="First Name" required>
+        <form action="" method="post" class="contact-us-form" onsubmit="return validateForm();">
+            <div class="form-head">
+                <h3>How can we help</h3>
             </div>
-            <div class="last-name">
-                <label for="lastName">Last Name</label>
-                <input type="text" name="last_name" id="lastName" placeholder="Last Name" required>
+            <div class="name-input">
+                <div class="first-name">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="first_name" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="last-name">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="last_name" id="lastName" placeholder="Last Name" required>
+                </div>
             </div>
-        </div>
-        <div class="email-input">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-        </div>
-        <div class="number">
-            <label for="phone_number">Phone Number</label>
-            <input type="number" name="phone_number" id="phone_number" placeholder="Number" required>
-        </div>
-        <div class="message">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" placeholder="Your message" required></textarea>
-        </div>
-        <button type="submit" class="submit">Submit</button>
-    </form>
-
-
-
-
-        <!-- <div class="contact-us-content">
-            <div class="contact-us-content head">
-                <h3>Hubungi Kami</h3>
+            <div class="email-input">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" required>
             </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/address-icon.svg" alt="">
-                <a href="">Jl. Radin Inten II No. 62 Duren Sawit - Jakarta 13440</a>
+            <div class="number">
+                <label for="phone_number">Phone Number</label>
+                <input type="number" name="phone_number" id="phone_number" placeholder="Number" required>
             </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/wa-icon.png" alt="">
-                <a href="">0812 8006 9024</a>
+            <div class="message">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" placeholder="Your message" required></textarea>
             </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/fax-icon.png" alt="">
-                <a href="">(021) 8690 6777</a>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/mail-icon.svg" alt="">
-                <a href="">sales@metaldetectorindonesia.com</a>
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2247646531337!2d106.92011787475069!3d-6.234074893754143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5136fb5c4f%3A0xf3d086329e513d9c!2sPT%20TAHARICA!5e0!3m2!1sen!2sid!4v1724816005163!5m2!1sen!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div> -->
-
+            <button type="submit" class="submit">Submit</button>
+        </form>
     </div>
 
-    <script>
-    function validateForm() {
-        var firstName = document.getElementById('first_name').value;
-        var lastName = document.getElementById('last_name').value;
-        var email = document.getElementById('email').value;
-        var phone = document.getElementById('phone_number').value;
-        var message = document.getElementById('message').value;
+    <?php
+        require_once __DIR__ . '/vendor/autoload.php'; // Sesuaikan path sesuai dengan lokasi autoload.php
 
-        if (firstName == "" || lastName == "" || email == "" || phone == "" || message == "") {
-            alert("Please fill in all required fields.");
-            return false;
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+        
+        // Akses ke database global
+        global $wpdb;
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+            // Ambil dan sanitasi data dari form
+            $first_name = sanitize_text_field($_POST['first_name']);
+            $last_name = sanitize_text_field($_POST['last_name']);
+            $email = sanitize_email($_POST['email']);
+            $phone_number = sanitize_text_field($_POST['phone_number']);
+            $message = sanitize_textarea_field($_POST['message']);
+        
+            // Validasi bahwa field wajib diisi
+            if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($phone_number) && !empty($message)) {
+                
+                // Simpan data ke dalam tabel custom
+                $wpdb->insert(
+                    'contact_form_submissions', // Nama tabel database
+                    array(
+                        'first_name' => $first_name,
+                        'last_name' => $last_name,
+                        'email' => $email,
+                        'phone_number' => $phone_number,
+                        'message' => $message,
+                        'submission_date' => current_time('mysql'),
+                    )
+                );
+        
+                if ($wpdb->insert_id) {
+                    // Email telah disimpan di database, sekarang kirim email notifikasi
+                    // Email telah disimpan di database, sekarang kirim email notifikasi
+                    $mail = new PHPMailer(true);
+        
+                    try {
+                        // Set PHPMailer untuk menggunakan SMTP
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.gmail.com'; // Ganti dengan SMTP host kamu
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'ashabilsyauqi@gmail.com'; // Ganti dengan username email SMTP kamu
+                        $mail->Password = 'fbfrolfhozvqoayj'; // Ganti dengan password atau App password
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                        $mail->Port = 587;
+        
+                        // Set pengirim email
+                        // $mail->setFrom('ashabilsyauqi@gmail.com', 'Contact Form'); // Tetapkan email kamu sendiri sebagai pengirim
+                        $mail->setFrom($email, $first_name . ' ' . $last_name); // Tetapkan email kamu sendiri sebagai pengirim
+        
+                        // Tambahkan Reply-To dari pengguna yang submit form
+                        $mail->addReplyTo($email, $first_name . ' ' . $last_name); // Alamat email pengguna yang mengisi form
+        
+                        // Set penerima email (admin)
+                        $mail->addAddress('ashabilsyauqi@gmail.com', 'Ashabil Syauqi'); // Email tujuan (admin)
+        
+                        // Set isi email
+                        $mail->isHTML(true); // Email menggunakan format HTML
+                        $mail->Subject = 'New Contact Form Submission';
+                        $mail->Body    = "<strong>Name:</strong> $first_name $last_name <br>
+                                        <strong>Email:</strong> $email <br>
+                                        <strong>Phone:</strong> $phone_number <br>
+                                        <strong>Message:</strong> <br> $message";
+        
+                        // Kirim email
+                        $mail->send();
+                        echo '<p>Email notification has been sent.</p>';
+                    } catch (Exception $e) {
+                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                    }
+        
+        
+                    // Redirect setelah submit berhasil
+                    wp_redirect(home_url('/#contact-us')); // Ganti URL sesuai kebutuhan
+                    exit;
+                } else {
+                    echo '<p>There was an error saving your message. Please try again.</p>';
+                }
+                
+            } else {
+                echo '<p>Please fill in all required fields.</p>';
+            }
         }
-        return true;
-    }
-</script>
+    ?>
+    
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone_number').value;
+            var message = document.getElementById('message').value;
+
+            if (firstName == "" || lastName == "" || email == "" || phone == "" || message == "") {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </section>
+
 <?php get_footer(); ?>
