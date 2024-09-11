@@ -55,6 +55,8 @@
                             echo '<div class="dropdown-item">';
                             echo '<a style="text-align:start;" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
 
+                            
+
                             // Check for child categories
                             $child_args = array(
                                 'taxonomy'   => 'category', // Replace if you use a custom taxonomy
