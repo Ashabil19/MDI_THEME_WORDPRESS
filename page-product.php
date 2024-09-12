@@ -8,42 +8,6 @@
   </div>
 
   <div class="container-product-pages">
-    <!-- <div class="filter-container">
-          <div class="filter-head">
-            <h3>Filters</h3>
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/filter-icon.svg"
-              alt=""
-              style="width: 12%"
-            />
-          </div>
-          <div class="filter-content">
-            <div class="filter-item">
-              <p>Vehicle Mirror</p>
-              <span>&#10095;</span>
-            </div>
-            <div class="filter-item">
-              <p>Liquid Inspections</p>
-              <span>&#10095;</span>
-            </div>
-            <div class="filter-item">
-              <p>Explosives & Narcotics Detection</p>
-              <span>&#10095;</span>
-            </div>
-            <div class="filter-item">
-              <p>Vehicle Mirror</p>
-              <span>&#10095;</span>
-            </div>
-            <div class="filter-item">
-              <p>Vehicle Mirror</p>
-              <span>&#10095;</span>
-            </div>
-          </div>
-          <div class="filter-footer">
-            <button>Apply Filter</button>
-          </div>
-        </div> -->
-
     <div class="product-container">
       <div class="product-content-container">
         <h2>Vehicle Mirror</h2>

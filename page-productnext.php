@@ -9,66 +9,71 @@
 
 
 
-  <!-- Targeting area filter blm di develop secara backend -->
   <div class="container-product-pages">
-    <div class="filter-container">
-      <div class="filter-head">
-        <h3>Filters</h3>
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/filter-icon.svg"
-          alt="Filter Icon"
-          style="width: 12%" />
-      </div>
-      <div class="filter-content">
-        <?php
-        // Mengambil kategori dari taxonomy 'category'
-        $categories = get_terms(array(
-            'taxonomy' => 'category', // Menggunakan taxonomy default
-            'hide_empty' => false,
-            'parent' => 0, // Mengambil parent categories terlebih dahulu
-        ));
+      <div class="filter-container">
 
-        // Menampilkan parent categories beserta child-nya
-        if (!empty($categories) && !is_wp_error($categories)) {
-            foreach ($categories as $category) {
-                ?>
-                <div class="filter-item">
-                  <a href="?category_id=<?php echo $category->term_id; ?>">
-                    <p><?php echo esc_html($category->name); ?></p>
-                    <span>&#10095;</span>
-                  </a>
-                </div>
-                <?php
-                // Mengambil child categories dari parent
-                $child_categories = get_terms(array(
-                    'taxonomy' => 'category',
-                    'hide_empty' => false,
-                    'parent' => $category->term_id,
-                ));
 
-                // Menampilkan child categories
-                if (!empty($child_categories) && !is_wp_error($child_categories)) {
-                    foreach ($child_categories as $child) {
-                        ?>
-                        <div class="filter-item child-category">
-                          <a href="?category_id=<?php echo $child->term_id; ?>">
-                            <p><?php echo esc_html($child->name); ?></p>
-                            <span>&#10095;</span>
+
+        <div class="filter-head">
+            <h3>Filters</h3>
+            <img
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/filter-icon.svg"
+                alt="Filter Icon"
+                style="width: 12%" />
+        </div>
+        <div class="filter-content">
+
+
+          
+
+
+
+          <?php
+          function display_child_categories($parent_id, $level = 1) {
+              $child_categories = get_terms(array(
+                  'taxonomy' => 'category',
+                  'hide_empty' => false,
+                  'parent' => $parent_id,
+              ));
+
+              if (!empty($child_categories) && !is_wp_error($child_categories)) {
+                  foreach ($child_categories as $child) {
+                      ?>
+                      <div class="filter-item child-category" >
+                          <a style="text-decoration:none; color:#292929;" href="?category_id=<?php echo $child->term_id; ?>">
+                              <p><?php echo esc_html($child->name); ?></p>
                           </a>
-                        </div>
-                        <?php
-                    }
-                }
-            }
-        } else {
-            echo '<p>No categories found.</p>';
-        }
-        ?>
-      </div>
-      <div class="filter-footer">
-        <button>Apply Filter</button>
-      </div>
-    </div>
+                      </div>
+                      <?php
+                      // Recursively display subcategories (grandchildren, etc.)
+                      display_child_categories($child->term_id, $level + 1);
+                  }
+              }
+          }
+
+          $categories = get_terms(array(
+              'taxonomy' => 'category', 
+              'hide_empty' => false,
+              'parent' => 0, 
+          ));
+
+          if (!empty($categories) && !is_wp_error($categories)) {
+              foreach ($categories as $category) {
+                  ?>
+                  <div class="filter-item parent-category">
+                      <a style="text-decoration:none; color:#292929;" href="?category_id=<?php echo $category->term_id; ?>">
+                          <p><?php echo esc_html($category->name); ?></p>
+                      </a>
+                  </div>
+
+                  <?php
+                  display_child_categories($category->term_id);
+              }
+          } else {
+              echo '<p>No categories found.</p>';
+          }
+          ?>
+        </div>
 
 
 
@@ -76,6 +81,15 @@
 
 
 
+
+
+
+
+
+
+      </div>  
+
+              
     <div class="product-container"> 
       <div class="product-content-container">
         <div class="product-card-container">
@@ -170,6 +184,9 @@
           <?php endif; ?>
         </div>
       </div>
+
+
+      
     </div>
 
 

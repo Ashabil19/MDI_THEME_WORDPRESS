@@ -20,16 +20,16 @@ add_image_size('small', 600, 600, false);
 
 
 
-function create_product_taxonomy() {
-    register_taxonomy(
-        'product_category',
-        'product',
-        array(
-            'label' => __( 'Product Categories' ),
-            'rewrite' => array( 'slug' => 'product-category' ),
-            'hierarchical' => true,
-        )
-    );
-}
-add_action( 'init', 'create_product_taxonomy' );
+// function create_product_taxonomy() {
+//     register_taxonomy(
+//         'product_category',
+//         'product',
+//         array(
+//             'label' => __( 'Product Categories' ),
+//             'rewrite' => array( 'slug' => 'product-category' ),
+//             'hierarchical' => true,
+//         )
+//     );
+// }
+// add_action( 'init', 'create_product_taxonomy' );
 
