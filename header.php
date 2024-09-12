@@ -85,6 +85,12 @@
             </div>
 
 
+
+
+
+            
+
+
             <a href="<?php echo site_url('/about'); ?>">About</a>
             <a href="<?php echo site_url('#contact-us'); ?>">Contact</a>
 

@@ -158,7 +158,6 @@
 <section id="contact-us" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">
-
         <?php
         require_once __DIR__ . '/vendor/autoload.php'; // Sesuaikan path sesuai dengan lokasi autoload.php
 
@@ -167,7 +166,6 @@
 
         // Akses ke database global
         global $wpdb;
-
         // Flag untuk mengetahui apakah form berhasil dikirim
         $form_submitted = false;
 
@@ -199,7 +197,6 @@
                 if ($wpdb->insert_id) {
                     // Email telah disimpan di database, sekarang kirim email notifikasi
                     $mail = new PHPMailer(true);
-
                     try {
                         // Set PHPMailer untuk menggunakan SMTP
                         $mail->isSMTP();

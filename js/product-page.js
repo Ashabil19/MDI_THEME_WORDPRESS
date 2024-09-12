@@ -20,4 +20,26 @@ function closeMenu() {
   overlay.style.display = "none";
 }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const filterItems = document.querySelectorAll('.parent-category');
+
+  filterItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const childCategories = this.querySelector('.child-categories');
+      const isExpanded = this.classList.contains('expanded');
+
+      // Toggle collapse/expand
+      if (isExpanded) {
+        childCategories.style.display = 'none';
+        this.classList.remove('expanded');
+      } else {
+        childCategories.style.display = 'block';
+        this.classList.add('expanded');
+      }
+    });
+  });
+});
+
+
 // end navbar
