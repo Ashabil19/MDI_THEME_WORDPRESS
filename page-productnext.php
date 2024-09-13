@@ -45,7 +45,6 @@
                           </a>
                       </div>
                       <?php
-                      // Recursively display subcategories (grandchildren, etc.)
                       display_child_categories($child->term_id, $level + 1);
                   }
               }

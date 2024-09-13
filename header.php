@@ -31,10 +31,12 @@
         </div>
 
         <div class="nav-links" id="nav-links">
-            <a href="<?php echo site_url('/'); ?>">Home</a>
-            <a href="<?php echo site_url('/article'); ?>">Article</a>
+            <a style="color:#292929; text-decoration:none;" href="<?php echo site_url('/'); ?>">Home</a>
+            <a style="color:#292929; text-decoration:none;" href="<?php echo site_url('/article'); ?>">Article</a>
             <div class="dropdown">
-                <a href="<?php echo site_url('/productnext'); ?>" class="dropbtn">Product<div class="dropdown-icon"></div></a>
+                <a href="<?php echo site_url('/productnext'); ?>" class="dropbtn">Product
+                    <div class="dropdown-icon"></div>
+                </a>
                 <div class="dropdown-content">
                     <?php
                     // Retrieve parent categories for 'product'
@@ -50,12 +52,10 @@
                     // Check if there are any parent categories
                     if (!empty($product_categories)) {
                         foreach ($product_categories as $category) {
-                            // Link for the parent category
-                            $category_link = get_category_link($category->term_id);
+                            // Tautan untuk parent category, diarahkan ke halaman productnext dengan parameter category_id
+                            $category_link = home_url('/productnext/?category_id=' . $category->term_id);
                             echo '<div class="dropdown-item">';
                             echo '<a style="text-align:start;" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
-
-                            
 
                             // Check for child categories
                             $child_args = array(
@@ -69,7 +69,8 @@
                             if (!empty($child_categories)) {
                                 echo '<div class="dropdown-subcontent">';
                                 foreach ($child_categories as $child) {
-                                    $child_link = get_category_link($child->term_id);
+                                    // Tautan untuk child category, diarahkan ke halaman productnext dengan parameter category_id
+                                    $child_link = home_url('/productnext/?category_id=' . $child->term_id);
                                     echo '<a style="text-align:start;" href="' . esc_url($child_link) . '">' . esc_html($child->name) . '</a>';
                                 }
                                 echo '</div>'; // Close child dropdown
@@ -83,6 +84,7 @@
                     ?>
                 </div>
             </div>
+
 
 
 
