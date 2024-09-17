@@ -149,7 +149,7 @@
 
 
 
-      <div class="pagination">
+      <div class="pagination" style="margin-top: 100px;">
         <div class="prev-pagination">
           <?php if (get_previous_posts_link()) : ?>
             <?php previous_posts_link('Previous'); ?>
