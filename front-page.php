@@ -40,8 +40,8 @@
 
 
 
-     <!-- List mau diisi dengan apa ?? -->
-            
+    <!-- List mau diisi dengan apa ?? -->
+
 
     <div class="page-section">
         <a href="#" class="btn-pages">List 1</a>
@@ -84,7 +84,9 @@
         ?>
     </div>
 
-    <button class="product-btn">View All</button>
+    <a href="<?php echo site_url('/productnext'); ?>">
+        <button class="product-btn">View All</button>
+    </a>
 
 </section>
 
@@ -180,7 +182,7 @@
 
             // Validasi bahwa field wajib diisi
             if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($phone_number) && !empty($message)) {
-                
+
                 // Simpan data ke dalam tabel custom
                 $wpdb->insert(
                     'contact_form_submissions', // Nama tabel database
@@ -233,7 +235,6 @@
                 } else {
                     echo '<p>There was an error saving your message. Please try again.</p>';
                 }
-                
             } else {
                 echo '<p>Please fill in all required fields.</p>';
             }
@@ -243,7 +244,9 @@
         <?php if ($form_submitted) : ?>
             <!-- Tampilkan pesan sukses -->
             <!-- <p style="text-align: center; color: green;">Your message has been successfully sent!</p> -->
-             <script>alert('Form Submitted')</script>
+            <script>
+                alert('Form Submitted')
+            </script>
         <?php endif; ?>
 
         <!-- Tampilkan form selalu -->
