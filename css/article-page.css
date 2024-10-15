@@ -178,6 +178,12 @@ body {
   height: max-content;
   padding: 10px 150px;
   box-sizing: border-box;
+  /* background-color: aqua; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .article-pages-name {
   /* background-color: aliceblue; */
@@ -186,6 +192,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  padding: 10px 150px;
 }
 #article .article-head {
   width: 100%;
@@ -216,13 +223,13 @@ body {
   align-items: center;
 }
 #article .article-content-container {
-  width: 100%;
+  max-width: 1200px;
   height: max-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 80px 18px;
-  place-items: center;
-  margin-top: 18px;
+  gap: 50px 10px;
+  justify-items: center;
+  align-items: center;
 }
 
 #article .article-content-container .card {
@@ -233,6 +240,9 @@ body {
   overflow: hidden;
   width: 370px;
 }
+#article .article-content-container .card .card-header {
+  width: 100%;
+}
 #article .article-content-container .card .card-header img {
   width: 100%;
   height: 200px;
@@ -241,8 +251,8 @@ body {
 #article .article-content-container .card .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: start;
+  align-items: start;
   padding: 20px;
   min-height: 250px;
 }
@@ -262,6 +272,7 @@ body {
 #article .article-content-container .card .card-body p {
   font-size: 16px;
   margin: 0 0 40px;
+  text-align: left;
   overflow: hidden;
   height: 75px;
 }
@@ -302,7 +313,7 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
   #article .article-content-container .card {
     margin: 0px;
   }
@@ -313,9 +324,8 @@ body {
     flex-wrap: wrap;
     align-items: center;
     margin-top: 18px;
-    background-color: red;
   }
-}
+} */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
@@ -366,6 +376,7 @@ body {
   }
   #article {
     padding: 20px;
+    /* background-color: #292929; */
   }
   #article .article-head {
     width: 100%;

@@ -4,25 +4,25 @@ Template Name: Articles Page
 */
 get_header(); ?>
 
+<div class="article-pages-name">
+    <h5><a style='color:black; text-decoration:none;' href="<?php echo home_url(); ?>">Home</a></h5>
+    <span>&#10095;</span>
+
+    <?php if (is_category() || is_single()) : ?>
+        <h5><a style='color:black; text-decoration:none;' href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Articles</a></h5>
+        <span>&#10095;</span>
+    <?php endif; ?>
+
+    <?php if (is_single()) : ?>
+        <h5><?php the_title(); ?></h5>
+    <?php elseif (is_category()) : ?>
+        <h5><?php single_cat_title(); ?></h5>
+    <?php elseif (is_page()) : ?>
+        <h5><?php the_title(); ?></h5>
+    <?php endif; ?>
+</div>
 <section id="article">
 
-    <div class="article-pages-name">
-        <h5><a style='color:black; text-decoration:none;' href="<?php echo home_url(); ?>">Home</a></h5>
-        <span>&#10095;</span>
-        
-        <?php if (is_category() || is_single()) : ?>
-            <h5><a style='color:black; text-decoration:none;' href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Articles</a></h5>
-            <span>&#10095;</span>
-        <?php endif; ?>
-        
-        <?php if (is_single()) : ?>
-            <h5><?php the_title(); ?></h5>
-        <?php elseif (is_category()) : ?>
-            <h5><?php single_cat_title(); ?></h5>
-        <?php elseif (is_page()) : ?>
-            <h5><?php the_title(); ?></h5>
-        <?php endif; ?>
-    </div>
 
 
     <div class="article-head">
@@ -41,79 +41,73 @@ get_header(); ?>
 
     <div class="article-content-container">
         <?php
+        // Menentukan query untuk menampilkan 8 artikel per halaman
         $args = array(
-            'post_type' => 'post',
-            'posts_per_page' => 8,
-            'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+            'post_type' => 'post', // Hanya menampilkan tipe post standar
+            'posts_per_page' => 6, // Menampilkan 8 post per halaman
+            'paged' => get_query_var('paged') ? get_query_var('paged') : 1, // Mendukung pagination
         );
 
+        // Menjalankan query untuk mendapatkan post
         $query = new WP_Query($args);
+
+        // Jika ada artikel yang ditemukan
         if ($query->have_posts()) :
+            // Loop untuk setiap artikel yang ditemukan
             while ($query->have_posts()) : $query->the_post(); ?>
-                <a style='color:#292929; text-decoration:none;'href="<?php the_permalink(); ?>" class="card-link">
+
+                <!-- Link ke artikel -->
+                <a href="<?php the_permalink(); ?>" class="card-link" style="color:#292929; text-decoration:none;">
                     <div class="card">
+                        <!-- Bagian gambar artikel -->
                         <div class="card-header">
                             <?php if (has_post_thumbnail()) : ?>
+                                <!-- Menampilkan gambar unggulan post -->
                                 <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>" />
                             <?php else : ?>
+                                <!-- Menampilkan gambar default jika tidak ada gambar unggulan -->
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/article-pages/article-img.png" alt="gambar_artikel" />
                             <?php endif; ?>
                         </div>
 
+                        <!-- Bagian konten artikel -->
                         <div class="card-body">
-                            <span class="tag">Artikel</span>
+                            <!-- Menampilkan judul artikel -->
                             <h4 class="card-title">
                                 <?php
-                                // Mengambil judul post
-                                $title = get_the_title();
-                                
-                                // Memisahkan judul menjadi array berdasarkan spasi
-                                $words = explode(' ', $title);
-
-                                // Mengambil dua kata pertama
-                                $short_title = implode(' ', array_slice($words, 0, 2));
-
-                                // Menentukan apakah judul memiliki lebih dari dua kata
-                                $has_more_words = count($words) > 2;
-
-                                // Menampilkan judul dengan tanda ellipsis jika lebih dari dua kata
-                                echo esc_html($short_title . ($has_more_words ? '...' : ''));
+                                // Mengambil judul dan menampilkan dua kata pertama
+                                $title = wp_trim_words(get_the_title(), 2, '...');
+                                echo esc_html($title);
                                 ?>
                             </h4>
-                            <p style='text-align:left;' class="card-text">
-                                <?php 
-                                // Mengambil excerpt dari post dan memotongnya menjadi 8 kata
-                                $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
 
-                                // Memastikan tag <p> hanya muncul jika excerpt ada
-                                if (!empty($excerpt)) {
-                                    echo esc_html($excerpt);
-                                }
+                            <!-- Menampilkan excerpt (ringkasan) artikel, maksimal 8 kata -->
+                            <p class="card-text">
+                                <?php
+                                $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
+                                echo esc_html($excerpt);
                                 ?>
                             </p>
 
-
-                            <div class="user">
-                                <!-- <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" /> -->
-                                <div class="user-info">
-                                    <h5 style='text-align:left;'><?php the_author(); ?></h5>
-                                    <small><?php echo get_the_date(); ?></small>
-                                </div>
+                            <!-- Informasi penulis dan tanggal artikel -->
+                            <div class="user-info">
+                                <h5><?php the_author(); ?></h5>
+                                <small><?php echo get_the_date(); ?></small>
                             </div>
                         </div>
-
-
                     </div>
                 </a>
-            <?php endwhile;
+
+        <?php endwhile; // Mengakhiri loop
         else :
-            echo '<p>No articles found.</p>';
+            echo '<p>No articles found.</p>'; // Pesan jika tidak ada artikel ditemukan
         endif;
 
-        // Reset post data
+        // Reset query
         wp_reset_postdata();
         ?>
     </div>
+
 
 
 
@@ -121,7 +115,7 @@ get_header(); ?>
         <div class="prev-paggination">
             <?php if (get_previous_posts_link()) : ?>
                 <?php previous_posts_link('<img src="' . get_template_directory_uri() . '/assets/img/product-pages/prev-pag-icon.svg" alt="" /> <span class="previous-link">Previous</span>'); ?>
-                <?php else : ?>
+            <?php else : ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/prev-pag-icon.svg" alt="" />
                 <span style="color:#292929; text-decoration:none;">Previous</span>
             <?php endif; ?>
@@ -148,12 +142,11 @@ get_header(); ?>
             <?php if (get_next_posts_link(null, $query->max_num_pages)) : ?>
                 <?php next_posts_link('<span style="color:#292929; text-decoration:none;" >Next</span> <img src="' . get_template_directory_uri() . '/assets/img/product-pages/next-pag-icon.svg" alt="" />', $query->max_num_pages); ?>
             <?php else : ?>
-                <span style="color:#292929; text-decoration:none;" >Next</span>
+                <span style="color:#292929; text-decoration:none;">Next</span>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/next-pag-icon.svg" alt="" />
             <?php endif; ?>
         </div>
 
-        
     </div>
 </section>
 

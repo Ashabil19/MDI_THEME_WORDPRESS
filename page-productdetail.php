@@ -36,11 +36,9 @@ if ($product_id > 0) {
             <div class="product-desc-container">
               <h1 class="title"><?php the_title(); ?></h1>
               <div class="product-desc-btn">
-                <button class="count-btn">
-                  <span>-</span>
-                  <span>1</span>
-                  <span>+</span>
-                </button>
+
+            
+
                 <button class="btn-penawaran">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/img/detail-product/wa-penawaran-icon.svg" alt="" style="width: 14%" />
                   <span>Minta Penawaran</span>
