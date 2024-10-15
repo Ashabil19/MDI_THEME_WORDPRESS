@@ -1,7 +1,8 @@
 <?php
 
 
-function load_css() {
+function load_css()
+{
     wp_register_style('main', get_template_directory_uri() . '/css/main.css', [], 1, 'all');
     wp_enqueue_style('main');
 }
@@ -32,4 +33,3 @@ add_image_size('small', 600, 600, false);
 //     );
 // }
 // add_action( 'init', 'create_product_taxonomy' );
-

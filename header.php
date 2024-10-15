@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
     <script src="<?php echo get_template_directory_uri(); ?>/js/product-page.js"></script>
     <title>Metal Detector Indonesia</title>
 </head>
+
 <body>
 
     <nav class="navbar">
@@ -55,7 +57,7 @@
                             echo '<div class="dropdown-item">';
                             echo '<a style="text-align:start;" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
 
-                            
+
 
                             // Check for child categories
                             $child_args = array(
@@ -88,17 +90,24 @@
 
 
 
-            
+
 
 
             <a href="<?php echo site_url('/about'); ?>">About</a>
             <a href="<?php echo site_url('#contact-us'); ?>">Contact</a>
-
-            <form action="<?php echo home_url('/'); ?>" method="get" class="search-container">
-                <input type="text" name="s" id="search-input" placeholder="Search..." onkeyup="showSuggestions(this.value)">
-                <div class="suggestions" id="suggestions"></div>
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-container">
+                <input type="text" name="s" id="search-input" placeholder="Search..." onkeypress="submitOnEnter(event)" />
+                <input type="submit" style="display: none;" />
             </form>
         </div>
     </nav>
 
     <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <script>
+        function submitOnEnter(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                event.target.form.submit(); // Kirim form secara manual
+            }
+        }
+    </script>
