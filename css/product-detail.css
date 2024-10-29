@@ -175,7 +175,7 @@ body {
 }
 
 #product-detail {
-  padding: 10px 80px;
+  padding: 10px 150px;
   /* background-color: pink; */
 }
 .product-detail-page-name {
@@ -193,12 +193,7 @@ body {
   margin-top: 32px;
 }
 #product-detail .product-detail-container .product-detail-img {
-  max-width: 450px;
   height: max-content;
-}
-#product-detail .product-detail-container .product-detail-img img {
-  width: 100%;
-  object-fit: cover;
 }
 #product-detail .product-detail-container .product-desc-container {
   height: max-content;
