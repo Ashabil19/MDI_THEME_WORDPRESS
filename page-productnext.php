@@ -228,6 +228,13 @@
       </div>
       <!-- Pagination Controls -->
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> parent of db4aa75 (Fixing Product Page)
       <div class="pagination">
         <div class="prev-pagination">
           <?php if (get_previous_posts_link()) : ?>
