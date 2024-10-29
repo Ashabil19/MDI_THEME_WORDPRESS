@@ -234,6 +234,9 @@
 
 
 
+<<<<<<< HEAD
+>>>>>>> parent of db4aa75 (Fixing Product Page)
+=======
 >>>>>>> parent of db4aa75 (Fixing Product Page)
       <div class="pagination">
         <div class="prev-pagination">

@@ -60,8 +60,11 @@
                             echo '<a style="text-align:start;" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of db4aa75 (Fixing Product Page)
 =======
 >>>>>>> parent of db4aa75 (Fixing Product Page)
                             // Check for child categories
@@ -98,7 +101,10 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of db4aa75 (Fixing Product Page)
             
 >>>>>>> parent of db4aa75 (Fixing Product Page)
 
