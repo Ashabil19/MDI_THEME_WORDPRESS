@@ -65,6 +65,7 @@
       </div>
       <div class="filter-content">
 
+<<<<<<< HEAD
         <?php
         function display_child_categories($parent_id, $level = 1)
         {
@@ -72,6 +73,27 @@
             'taxonomy' => 'category',
             'hide_empty' => false,
             'parent' => $parent_id,
+=======
+              if (!empty($child_categories) && !is_wp_error($child_categories)) {
+                  foreach ($child_categories as $child) {
+                      ?>
+                      <div class="filter-item child-category" >
+                          <a style="text-decoration:none; color:#292929;" href="?category_id=<?php echo $child->term_id; ?>">
+                              <p><?php echo esc_html($child->name); ?></p>
+                          </a>
+                      </div>
+                      <?php
+                      // Recursively display subcategories (grandchildren, etc.)
+                      display_child_categories($child->term_id, $level + 1);
+                  }
+              }
+          }
+
+          $categories = get_terms(array(
+              'taxonomy' => 'category', 
+              'hide_empty' => false,
+              'parent' => 0, 
+>>>>>>> parent of 0d41588 (fixing category navbar)
           ));
 
           if (!empty($child_categories) && !is_wp_error($child_categories)) {
