@@ -4,34 +4,6 @@
 
 
 <section id="hero" style="height:100vh;">
-<<<<<<< HEAD
-
-
-    <!-- 
-    <div class="carousel">
-        <div class="carousel-slides">
-            <div class="slide active">
-                <p>Explore the world of treasures with Metal Detectors Indonesia. Where innovation meets reliability.</p>
-            </div>
-            <div class="slide">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi magni quibusdam nobis blanditiis corrupti provident! Veritatis recusandae voluptate velit culpa repudiandae obcaecati dolore corrupti, dolorum magni tempora? Quidem, ut enim?</div>
-            <div class="slide">Slide 3</div>
-            <div class="slide">Slide 4</div>
-        </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-    </div> -->
-
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-
-=======
->>>>>>> staging
     <div class="carousel">
         <div class="carousel-slides">
             <?php
@@ -62,24 +34,6 @@
         <button class="prev" onclick="prevSlide()">&#10094;</button>
         <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-<<<<<<< HEAD
-
-
-
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-    <!-- ================================================================================== -->
-
-
-
-
-=======
->>>>>>> staging
     <div class="btn-section">
         <button class="buy-now">Buy Now</button>
     </div>
@@ -130,13 +84,9 @@
         ?>
     </div>
 
-<<<<<<< HEAD
-    <button class="product-btn">View All</button>
-=======
     <a href="<?php echo site_url('/productnext'); ?>">
         <button class="product-btn">View All</button>
     </a>
->>>>>>> staging
 
 </section>
 
@@ -207,21 +157,7 @@
 
     </div>
 </section>
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-<section id="contact-us" data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom">
-
-=======
 <section id="contact-us" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
->>>>>>> staging
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">
         <?php
@@ -342,32 +278,6 @@
             </div>
             <button type="submit" class="submit">Submit</button>
         </form>
-<<<<<<< HEAD
-        <div class="contact-us-content">
-            <div class="contact-us-content head">
-                <h3>Hubungi Kami</h3>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/address-icon.svg" alt="">
-                <a href="">Jl. Radin Inten II No. 62 Duren Sawit - Jakarta 13440</a>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/wa-icon.png" alt="">
-                <a href="">0812 8006 9024</a>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/fax-icon.png" alt="">
-                <a href="">(021) 8690 6777</a>
-            </div>
-            <div class="contact-us-icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-icon/mail-icon.svg" alt="">
-                <a href="">sales@metaldetectorindonesia.com</a>
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2247646531337!2d106.92011787475069!3d-6.234074893754143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5136fb5c4f%3A0xf3d086329e513d9c!2sPT%20TAHARICA!5e0!3m2!1sen!2sid!4v1724816005163!5m2!1sen!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-=======
->>>>>>> staging
     </div>
 
     <script>
@@ -387,8 +297,4 @@
     </script>
 
 </section>
-<<<<<<< HEAD
-=======
-
->>>>>>> staging
 <?php get_footer(); ?>
