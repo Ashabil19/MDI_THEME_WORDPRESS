@@ -2,7 +2,7 @@
 
 <section id="search-results">
     <div class="search-results-header">
-        <h1>Hasil Pencarian anda: <?php echo get_search_query(); ?></h1>
+        <h1>Search Results for: <?php echo get_search_query(); ?></h1>
     </div>
 
     <div class="container-product-pages">
