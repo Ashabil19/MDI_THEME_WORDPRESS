@@ -9,16 +9,15 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  /* background-color: #333; */
   padding: 10px 30px;
+  column-gap: 125px;
   color: white;
 }
 
 .navbar .logo {
   font-size: 24px;
-  margin-right: 100px;
   /* border: 1px solid red; */
 }
 
@@ -39,6 +38,7 @@ body {
 .nav-links {
   display: flex;
   position: relative;
+  column-gap: 15px;
 }
 
 .nav-links a {
@@ -70,16 +70,14 @@ body {
 
 .search-container {
   position: relative;
-  width: 100%;
-  /* border: 1px solid red; */
-  margin-left: 100px;
+  width: 17.5%;
 }
 
 #search-input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -717,6 +715,20 @@ form.email-input-footer {
 .footer-content ul li a {
   color: #292929;
 } */
+@media (max-width: 1280px) {
+  .carousel {
+    width: 87%;
+  }
+  .btn-section {
+    width: 86.5%;
+  }
+  .page-section {
+    width: 93%;
+  }
+  #product {
+    padding: 0px 45px;
+  }
+}
 
 @media (max-width: 768px) {
   .nav-links {

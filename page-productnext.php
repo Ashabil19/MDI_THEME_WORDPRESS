@@ -7,65 +7,27 @@
     <h5>Product</h5>
   </div>
 
-<<<<<<< HEAD
 
 
-  <!-- Targeting area filter blm di develop secara backend -->
-  <div class="container-product-pages">
-    <div class="filter-container">
-=======
   <div class="container-product-pages">
     <div class="filter-container">
 
->>>>>>> staging
+
+
       <div class="filter-head">
         <h3>Filters</h3>
         <img
           src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/filter-icon.svg"
-<<<<<<< HEAD
-          alt=""
-          style="width: 12%" />
-      </div>
-      <div class="filter-content">
-        <div class="filter-item">
-          <p>Vehicle Mirror</p>
-          <span>&#10095;</span>
-        </div>
-        <div class="filter-item">
-          <p>Liquid Inspections</p>
-          <span>&#10095;</span>
-        </div>
-        <div class="filter-item">
-          <p>Explosives & Narcotics Detection</p>
-          <span>&#10095;</span>
-        </div>
-        <div class="filter-item">
-          <p>Vehicle Mirror</p>
-          <span>&#10095;</span>
-        </div>
-        <div class="filter-item">
-          <p>Vehicle Mirror</p>
-          <span>&#10095;</span>
-        </div>
-      </div>
-      <div class="filter-footer">
-        <button>Apply Filter</button>
-      </div>
-    </div>
-
-
-    <div class="product-container">
-      <div class="product-content-container">
-        <h2>Vehicle Mirror</h2>
-        <div class="product-card-container">
-          <?php
-=======
           alt="Filter Icon"
           style="width: 12%" />
       </div>
       <div class="filter-content">
 
-<<<<<<< HEAD
+
+
+
+
+
         <?php
         function display_child_categories($parent_id, $level = 1)
         {
@@ -73,27 +35,6 @@
             'taxonomy' => 'category',
             'hide_empty' => false,
             'parent' => $parent_id,
-=======
-              if (!empty($child_categories) && !is_wp_error($child_categories)) {
-                  foreach ($child_categories as $child) {
-                      ?>
-                      <div class="filter-item child-category" >
-                          <a style="text-decoration:none; color:#292929;" href="?category_id=<?php echo $child->term_id; ?>">
-                              <p><?php echo esc_html($child->name); ?></p>
-                          </a>
-                      </div>
-                      <?php
-                      // Recursively display subcategories (grandchildren, etc.)
-                      display_child_categories($child->term_id, $level + 1);
-                  }
-              }
-          }
-
-          $categories = get_terms(array(
-              'taxonomy' => 'category', 
-              'hide_empty' => false,
-              'parent' => 0, 
->>>>>>> parent of 0d41588 (fixing category navbar)
           ));
 
           if (!empty($child_categories) && !is_wp_error($child_categories)) {
@@ -133,7 +74,21 @@
         }
         ?>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
+
 
     <div class="product-container">
       <div class="product-content-container">
@@ -141,17 +96,13 @@
           <?php
           // Ambil parameter category_id dari URL
           $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
-          $search_query = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
 
->>>>>>> staging
           $args = array(
             'post_type' => 'product',
             'posts_per_page' => 6,
             'paged' => max(1, get_query_var('paged')),
           );
 
-<<<<<<< HEAD
-=======
           // Jika category_id ada, tambahkan parameter tax_query
           if ($category_id) {
             $args['tax_query'] = array(
@@ -162,11 +113,7 @@
               ),
             );
           }
-          if (!empty($search_query)) {
-            $args['s'] = $search_query;
-          }
 
->>>>>>> staging
           $query = new WP_Query($args);
           if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post(); ?>
@@ -195,87 +142,42 @@
           wp_reset_postdata();
           ?>
         </div>
-<<<<<<< HEAD
-      </div>
-    </div>
-
-
-    <!-- Pagination Controls -->
-
-
-
-
-
-    <div class="pagination">
-      <div class="prev-pagination">
-        <?php if (get_previous_posts_link()) : ?>
-          <?php previous_posts_link('Previous'); ?>
-        <?php else : ?>
-          <span style="color:#292929; text-decoration:none;">Previous </span>
-        <?php endif; ?>
-      </div>
-      <div class="number-pagination">
-        <?php
-        $total_pages = $query->max_num_pages;
-        $current_page = max(1, get_query_var('paged'));
-
-        for ($i = 1; $i <= $total_pages; $i++) {
-          $class = $i == $current_page ? 'active' : '';
-
-          if ($i == $current_page) {
-            echo "<span style='color:white; text-decoration:none;' class=\"$class\">$i</span>";
-          } else {
-            $page_link = get_pagenum_link($i);
-            echo "<a style='color:#292929; text-decoration:none;' href=\"$page_link\" class='num-pag'>$i</a>";
-          }
-        }
-        ?>
-      </div>
-
-      <div class="next-pagination">
-        <?php if (get_next_posts_link(null, $query->max_num_pages)) : ?>
-          <?php next_posts_link('Next', $query->max_num_pages); ?>
-        <?php else : ?>
-          <span style="color:#292929; text-decoration:none;">Next</span>
-        <?php endif; ?>
-      </div>
-    </div>
-  </div>
-
-
-
-
-=======
 
       </div>
       <!-- Pagination Controls -->
 
-<<<<<<< HEAD
-=======
 
 
 
 
-<<<<<<< HEAD
->>>>>>> parent of db4aa75 (Fixing Product Page)
-=======
->>>>>>> parent of db4aa75 (Fixing Product Page)
       <div class="pagination">
         <div class="prev-pagination">
           <?php if (get_previous_posts_link()) : ?>
-            <?php previous_posts_link('Previous'); ?>
+            <?php previous_posts_link('<img src="' . get_template_directory_uri() . '/assets/img/prev-pag-icon.svg" alt="" /> <span class="previous-link">Previous</span>', $query->max_num_pages); ?>
           <?php else : ?>
-            <span style="color:#292929; text-decoration:none;">Previous </span>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/prev-pag-icon.svg" alt="" />
+            <span style="color:#292929; text-decoration:none;">Previous</span>
           <?php endif; ?>
         </div>
+
         <div class="number-pagination">
           <?php
           $total_pages = $query->max_num_pages;
           $current_page = max(1, get_query_var('paged'));
 
-          for ($i = 1; $i <= $total_pages; $i++) {
-            $class = $i == $current_page ? 'active' : '';
+          // Menentukan angka yang mau ditampilin
+          $start_page = max(1, $current_page - 2);
+          $end_page = min($total_pages, $current_page + 2);
 
+          // Tampilkan halaman pertama jika tidak ada di dalam jangkaun
+          if ($start_page > 1) {
+            echo "<a style='color:#292929; text-decoration:none;' href='" . get_pagenum_link(1) . "' class='num-pag'>1</a>";
+            if ($start_page > 2) echo "<span>...</span>";
+          }
+
+          // Loop untuk menampilkan angka halaman di dalam jangkaun
+          for ($i = $start_page; $i <= $end_page; $i++) {
+            $class = $i == $current_page ? 'active' : '';
             if ($i == $current_page) {
               echo "<span style='color:white; text-decoration:none;' class=\"$class\">$i</span>";
             } else {
@@ -283,20 +185,33 @@
               echo "<a style='color:#292929; text-decoration:none;' href=\"$page_link\" class='num-pag'>$i</a>";
             }
           }
+
+          // Tampilkan halaman terakhir jika tidak ada dalam jangkauan
+          if ($end_page < $total_pages) {
+            if ($end_page < $total_pages - 1) echo "<span>...</span>";
+            echo "<a style='color:#292929; text-decoration:none;' href='" . get_pagenum_link($total_pages) . "' class='num-pag'>$total_pages</a>";
+          }
           ?>
         </div>
 
         <div class="next-pagination">
           <?php if (get_next_posts_link(null, $query->max_num_pages)) : ?>
-            <?php next_posts_link('Next', $query->max_num_pages); ?>
+            <?php next_posts_link('<span style="color:#292929; text-decoration:none;" >Next</span> <img src="' . get_template_directory_uri() . '/assets/img/next-pag-icon.svg" alt="" />', $query->max_num_pages); ?>
           <?php else : ?>
             <span style="color:#292929; text-decoration:none;">Next</span>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/next-pag-icon.svg" alt="" />
           <?php endif; ?>
         </div>
       </div>
 
+
+
+
     </div>
->>>>>>> staging
+
+
+
+
 
 
   </div>

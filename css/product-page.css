@@ -1,16 +1,11 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-
 /* Product Pages */
 #product-pages {
-  padding: 0 150px;
+  padding: 0 50px;
   box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 1500px;
   height: fit-content;
-  /* background-color: aquamarine; */
+  margin: auto;
 }
 
 .product-pages-name {
@@ -19,46 +14,29 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-left: 100px;
 }
 
 .container-product-pages {
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 100%;
-  /* height: 70%; */
-  /* background-color: beige; */
-  /* display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 20px; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-=======
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, .7fr);
->>>>>>> parent of 02f6e96 (fixing home layout, article card, product page and product detail page css only)
   gap: 15px;
-=======
-  /* background-color: pink; */
   max-width: 1500px;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  gap: 10px;
->>>>>>> staging
 }
 
 /* Filter Container */
 .filter-container {
   width: max-content;
-  /* background-color: red; */
+  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 5px 14px;
   border: 1px solid black;
   border-radius: 12px;
   gap: 7px;
-  height:max-content;
+  height: max-content;
+  margin-left: 95px;
 }
 
 .filter-head {
@@ -66,7 +44,6 @@ body {
   justify-content: space-between;
   border-bottom: 1px solid black;
 }
-
 
 .filter-content .filter-item {
   display: flex;
@@ -89,173 +66,88 @@ body {
   border: none;
   cursor: pointer;
 }
-<<<<<<< HEAD
-#product-pages .product-container {
-  width: 100%;
-  height: max-content;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  /* background-color: rebeccapurple; */
-=======
 
 /* Product Cards */
-.product-content-container {
-  width: 100%;
->>>>>>> staging
-}
 .product-content-container .product-card-container {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-<<<<<<< HEAD
-<<<<<<< HEAD
+  grid-template-columns: repeat(3, 0.31fr);
   gap: 32px 14px;
-  /* background-color: rgb(29, 227, 78); */
-  height: max-content;
-=======
-  /* background-color: antiquewhite; */
-  gap: 90px 5px;
->>>>>>> staging
-}
-
-.products-card {
-<<<<<<< HEAD
-  /* background-color: aquamarine; */
-  /* height: auto; */
-  width: 300px;
-  height: 400px;
-=======
-  width: 300px;
-  height: 300px;
-  /* background-color: aqua; */
->>>>>>> staging
-=======
-  gap: 32px 14px;
+  margin-right: 170px;
 }
 
 .products-card {
   width: 300px;
-  height: 400px;
->>>>>>> parent of 02f6e96 (fixing home layout, article card, product page and product detail page css only)
+  height: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-}
-.products-card a {
-  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .product-card-img {
   width: 100%;
-<<<<<<< HEAD
-  height: 250px;
-=======
-  height: 80%;
->>>>>>> parent of 02f6e96 (fixing home layout, article card, product page and product detail page css only)
+  height: 300px;
 }
 
 .product-card-img img {
   height: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
   object-fit: contain;
-=======
-  object-fit: cover;
->>>>>>> staging
-=======
-  object-fit: contain;
->>>>>>> parent of 02f6e96 (fixing home layout, article card, product page and product detail page css only)
+  object-position: top;
 }
 
 .product-card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  /* background-color: crimson; */
+  height: 135px;
 }
 .product-card-content h4 {
-  width: 100%;
-  height: 37px;
+  height: 70%;
+  overflow: hidden;
 }
-
 .product-card-content button {
   background-color: red;
-  width: 100%;
   border: none;
   color: white;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-#product-pages .product-container .pagination {
-  /* background-color: red; */
-=======
 .product-container {
   display: flex;
-  /* background-color: rgb(86, 199, 116); */
-  justify-items: start;
-  align-items: start;
+  /* grid-template-columns: repeat(4, 1fr); */
+  gap: 80px;
+  justify-items: center;
+  align-items: center;
   flex-direction: column;
-  width: 100%;
-=======
-.product-container{
-  display: flex;
-    /* grid-template-columns: repeat(4, 1fr); */
-    gap: 80px;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
->>>>>>> parent of 02f6e96 (fixing home layout, article card, product page and product detail page css only)
 }
 /* Pagination */
 #product-pages .product-container .pagination {
->>>>>>> staging
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin: 100px auto;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> staging
 #product-pages .product-container .pagination .next-pagination a,
 #product-pages .product-container .pagination .prev-pagination a {
   text-decoration: none;
   color: black;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> staging
 #product-pages .product-container .pagination .number-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  /* background-color: aqua; */
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> staging
 #product-pages .product-container .pagination .number-pagination .active {
   color: white;
   background-color: black;
   padding: 5px;
   border-radius: 5px;
-}
-.paggination {
-}
-.paggination .number-paggination {
-}
-.paggination .number-paggination .active {
 }
 
 /* Footer */
@@ -370,19 +262,6 @@ form.email-input-footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-  .container-product-pages {
-    /* background-color: pink; */
-    max-width: 1100px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .product-content-container .product-card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
@@ -421,88 +300,11 @@ form.email-input-footer {
   .dropdown-content {
     position: absolute;
     top: 34px;
-<<<<<<< HEAD
-    left: -8px;
-  }
-
-  /* Separator */
-  .separator {
-    display: flex;
-    height: 100px;
-    background-color: black;
-    margin-top: 50px;
-  }
-  .btn-pages {
-    color: #292929;
-    font-size: 12px;
-    padding: 0px 20px;
-    text-decoration: none;
-  }
-  #product-pages {
-    /* background-color: aquamarine; */
-    height: max-content;
-    padding: 0 20px;
-  }
-  #product-pages .product-container {
-    width: 100%;
-    /* background-color: rgb(255, 111, 111); */
-    overflow: hidden;
-  }
-  .filter-container {
-    width: 150px;
-  }
-  .filter-container h3 {
-    font-size: 16px;
-  }
-  .filter-container .filter-content .filter-item {
-    font-size: 12px;
-  }
-  .filter-footer button {
-    padding: 4px;
-    border-radius: 8px;
-    font-size: 12px;
-=======
     left: -40px;
->>>>>>> staging
   }
 
   .product-content-container .product-card-container {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
-    gap: 32px;
-    /* background-color: aquamarine; */
-  }
-  .products-card {
-    /* background-color: rgb(255, 155, 127); */
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-  }
-  #product-pages .product-container .pagination {
-    gap: 6px;
-    justify-content: start;
-    align-items: center;
-    width: fit-content;
-  }
-  #product-pages .product-container .pagination .number-pagination {
-    font-size: 14px;
-    gap: 6px;
-  }
-  #product-pages
-    .product-container
-    .pagination
-    .number-pagination
-    .mobile-none {
-    display: none;
-  }
-  #product-pages .product-container .pagination .prev-pagination,
-  #product-pages .product-container .pagination .next-pagination {
-    display: flex;
-    font-size: 12px;
-    gap: 4px;
-=======
   }
 }
 
@@ -524,6 +326,5 @@ form.email-input-footer {
 
   .product-content-container .product-card-container {
     grid-template-columns: 1fr;
->>>>>>> staging
   }
 }
