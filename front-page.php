@@ -113,34 +113,36 @@
                 // The Loop
                 if ($query->have_posts()) :
                     while ($query->have_posts()) : $query->the_post(); ?>
-                        <div class="card">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-top">
-                            <?php else : ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/default-article.jpg" alt="default image" class="img-top">
-                            <?php endif; ?>
-                            <div class="card-txt">
-                                <h1 class="title"><?php the_title(); ?></h1>
-                                <p style='text-align:left; ' class="card-text">
-                                    <?php
-                                    // Mengambil excerpt dari post dan memotongnya menjadi 8 kata
-                                    $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
+                        <a href="<?php the_permalink(); ?>" style="color:#292929; text-decoration:none;">
+                            <div class="card">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-top">
+                                <?php else : ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/default-article.jpg" alt="default image" class="img-top">
+                                <?php endif; ?>
+                                <div class="card-txt">
+                                    <h1 class="title"><?php the_title(); ?></h1>
+                                    <p style='text-align:left; ' class="card-text">
+                                        <?php
+                                        // Mengambil excerpt dari post dan memotongnya menjadi 8 kata
+                                        $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
 
-                                    // Memastikan tag <p> hanya muncul jika excerpt ada
-                                    if (!empty($excerpt)) {
-                                        echo esc_html($excerpt);
-                                    }
-                                    ?>
-                                </p>
-                                <div class="author">
-                                    <span style="font-size:12px;">Posted by</span>
-                                    <!-- <div class="author-avatar">
+                                        // Memastikan tag <p> hanya muncul jika excerpt ada
+                                        if (!empty($excerpt)) {
+                                            echo esc_html($excerpt);
+                                        }
+                                        ?>
+                                    </p>
+                                    <div class="author">
+                                        <span style="font-size:12px;">Posted by</span>
+                                        <!-- <div class="author-avatar">
                                         <?php echo get_avatar(get_the_author_meta('ID'), 32); ?>
                                     </div> -->
-                                    <span style="font-size:12px;"><?php the_author(); ?></span>
+                                        <span style="font-size:12px;"><?php the_author(); ?></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                 <?php endwhile;
                 endif;
                 wp_reset_postdata();

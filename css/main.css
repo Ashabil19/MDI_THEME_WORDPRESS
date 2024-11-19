@@ -383,8 +383,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  height: 20%;
-  overflow: hidden;
+
   padding: 14px 28px;
   /* background-color: cadetblue; */
 }
@@ -492,13 +491,6 @@ body {
   height: 45%;
   background-color: palegoldenrod;
   object-fit: cover;
-}
-
-.card-txt {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 14px 28px;
 }
 
 .author {
