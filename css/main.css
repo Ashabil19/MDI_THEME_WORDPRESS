@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .navbar {
@@ -14,6 +14,9 @@ body {
   padding: 10px 30px;
   column-gap: 125px;
   color: white;
+  /* background-color: pink; */
+  max-width: 1500px;
+  margin: auto;
 }
 
 .navbar .logo {
@@ -207,14 +210,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-top: 30px;
+  margin: 30px auto;
   flex-direction: column;
   height: 100vh;
+  /* background-color: aqua; */
+  max-width: 1500px;
 }
 
 .carousel {
   position: relative;
-  width: 70%;
+  width: 78%;
   overflow: hidden;
   height: 560px;
   border-radius: 10px;
@@ -276,7 +281,7 @@ body {
   justify-content: center; */
 
   /* background-color: red; */
-  width: 70%;
+  width: 78%;
 }
 .buy-now {
   padding: 15px 60px;
@@ -306,7 +311,7 @@ body {
 
   /* background-color: red; */
   margin-top: 20px;
-  width: 70%;
+  width: 82%;
 }
 
 .btn-pages {
@@ -333,25 +338,55 @@ body {
 
 /* product */
 #product {
-  padding: 0px 180px;
+  padding: 0px;
   box-sizing: border-box;
   text-align: center;
-  height: fit-content;
   margin-top: 100px;
+  /* background-color: antiquewhite; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#product h1 {
+  font-size: 48px;
 }
 #product .product-home {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1200px; /* Batasi lebar grid */
-  margin: 0 auto;
+  margin: 15px auto;
+  display: flex;
+  width: 1233px;
+  height: 608px;
 }
-.product-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
+#product .product-home a {
+  text-decoration: none;
+  color: black;
+}
+
+#product .product-home .card {
+  flex: 1;
+  cursor: pointer;
+  background-color: aquamarine;
+  transition: all 0.5s;
+  background-size: cover;
+}
+
+#product .product-home .card:hover {
+  flex: 3;
+}
+/* .card img {
+  width: 200px;
+  height: 300px;
+} */
+.card .title {
+}
+
+.card-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 20%;
+  overflow: hidden;
+  padding: 14px 28px;
+  /* background-color: cadetblue; */
 }
 .product-name {
   margin-top: 20px;
@@ -367,10 +402,11 @@ body {
   object-fit: contain;
 }
 .product-btn {
-  margin-top: 130px;
+  margin: 15px auto;
   padding: 10px 60px;
   border-radius: 24px;
   background-color: white;
+  cursor: pointer;
 }
 
 /* news article */
@@ -388,7 +424,7 @@ body {
 
 .news-img {
   width: 50%;
-  height: 360px;
+  height: 420px;
   background-image: url("../assets/img/news-image1.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -420,53 +456,9 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-
-.card-container {
-  display: flex;
-  overflow: hidden;
-  padding: 8px 0;
-  justify-content: start;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-  height: 360px;
-
-  scroll-behavior: smooth;
+.container-news-article .slider .card-container .card {
+  width: 40%;
 }
-
-.card {
-  width: 18rem;
-  height: fit-content;
-  background-color: white;
-  box-shadow: -1px 0px 8px 1px rgba(102, 102, 102, 1);
-  height: 100%;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /* gap: 8px; */
-  text-align: center;
-}
-
-.card .title {
-  font-size: 1.5rem;
-}
-
-.img-top {
-  width: 100%;
-  height: 45%;
-  background-color: palegoldenrod;
-  object-fit: cover;
-}
-
-.card-txt {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 14px 28px;
-}
-
 .author {
   display: flex;
   justify-content: center;

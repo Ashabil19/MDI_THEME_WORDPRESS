@@ -67,24 +67,24 @@
 
         // The Loop
         if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post(); ?>
-                <div class="card" style='box-shadow:none;'>
-                    <?php
-                    $gambar = get_field('gambar_product');
-                    if ($gambar): ?>
-                        <img src="<?php echo esc_url($gambar); ?>" alt="<?php the_title(); ?>" style="width: 200px; height:300px;" />
-                    <?php endif; ?>
-                    <div class="card-txt">
-                        <h1 class="title"><?php the_title(); ?></h1>
-                    </div>
-                </div>
-        <?php endwhile;
+            while ($query->have_posts()) : $query->the_post();
+                $gambar = esc_url(get_field('gambar_product')); // Mengambil dan memvalidasi URL gambar
+        ?>
+                <a
+                    href="<?php echo home_url('/productdetail/?product_id=') . get_the_ID(); ?>"
+                    class="card"
+                    style="background-image: url('<?php echo $gambar; ?>');">
+                </a>
+        <?php
+            endwhile;
         endif;
         wp_reset_postdata();
         ?>
     </div>
 
-    <button class="product-btn">View All</button>
+    <a href="<?php echo site_url('/productnext'); ?>">
+        <button class="product-btn">View All</button>
+    </a>
 
 </section>
 

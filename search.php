@@ -6,34 +6,7 @@
     </div>
 
     <div class="container-product-pages">
-        <div class="filter-container">
 
-            <div class="filter-head">
-                <h3>Filters</h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/product-pages/filter-icon.svg" alt="Filter Icon" style="width: 12%" />
-            </div>
-            <div class="filter-content">
-                <?php
-                // Filter Kategori (Optional)
-                $categories = get_terms(array(
-                    'taxonomy' => 'category',
-                    'hide_empty' => false,
-                    'parent' => 0,
-                ));
-
-                if (!empty($categories) && !is_wp_error($categories)) {
-                    foreach ($categories as $category) {
-                        echo '<div class="filter-item parent-category">';
-                        echo '<a href="?category_id=' . $category->term_id . '" style="text-decoration:none; color:#292929;">';
-                        echo '<p>' . esc_html($category->name) . '</p>';
-                        echo '</a></div>';
-                    }
-                } else {
-                    echo '<p>No categories found.</p>';
-                }
-                ?>
-            </div>
-        </div>
 
         <div class="product-container">
             <div class="product-content-container">

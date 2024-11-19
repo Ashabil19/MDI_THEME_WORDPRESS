@@ -17,7 +17,11 @@
   margin-top: 32px;
 }
 #product-detail .product-detail-container .product-detail-img {
+  width: 35%;
   height: max-content;
+}
+#product-detail .product-detail-container .product-detail-img img {
+  width: 100%;
 }
 #product-detail .product-detail-container .product-desc-container {
   height: max-content;
