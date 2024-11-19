@@ -90,25 +90,21 @@
 
 
 
-
 <section id="news-article" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-    <h1 style="font-size: 48px; margin-top:200px;">News Article</h1>
+    <h1 style="font-size: 54px;">News Article</h1>
     <div class="container-news-article">
-        <!-- slider Attachment -->
         <div class="news-img"></div>
-
-
-
         <div class="slider">
-            <div class="slider-nav-new">
+            <div class="slider-nav">
                 <span class="prev" id="left">&lt;</span>
                 <span class="next" id="right">&gt;</span>
             </div>
             <div class="card-container">
                 <?php
+                // Define the WP Query parameters
                 $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => -1,
+                    'post_type' => 'post', // Specify post type
+                    'posts_per_page' => -1, // Number of posts to display
                 );
 
                 // The Query
@@ -127,7 +123,10 @@
                                 <h1 class="title"><?php the_title(); ?></h1>
                                 <p style='text-align:left; ' class="card-text">
                                     <?php
+                                    // Mengambil excerpt dari post dan memotongnya menjadi 8 kata
                                     $excerpt = wp_trim_words(get_the_excerpt(), 8, '...');
+
+                                    // Memastikan tag <p> hanya muncul jika excerpt ada
                                     if (!empty($excerpt)) {
                                         echo esc_html($excerpt);
                                     }
@@ -144,17 +143,14 @@
                         </div>
                 <?php endwhile;
                 endif;
-
-                // Reset Post Data
                 wp_reset_postdata();
                 ?>
             </div>
         </div>
-
-
-
     </div>
 </section>
+
+
 <section id="contact-us" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h1 class="contact-us-title" style="text-align: center;">Contact Us</h1>
     <div class="form-content-container">

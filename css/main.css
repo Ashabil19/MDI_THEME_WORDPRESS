@@ -424,7 +424,7 @@ body {
 
 .news-img {
   width: 50%;
-  height: 420px;
+  height: 360px;
   background-image: url("../assets/img/news-image1.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -456,9 +456,51 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-.container-news-article .slider .card-container .card {
-  width: 40%;
+
+.card-container {
+  display: flex;
+  overflow: hidden;
+  padding: 8px 0;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 360px;
+
+  scroll-behavior: smooth;
 }
+
+.card {
+  width: 18rem;
+  height: fit-content;
+  background-color: white;
+  box-shadow: -1px 0px 8px 1px rgba(102, 102, 102, 1);
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.card .title {
+  font-size: 1rem;
+}
+
+.img-top {
+  width: 100%;
+  height: 45%;
+  background-color: palegoldenrod;
+  object-fit: cover;
+}
+
+.card-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 28px;
+}
+
 .author {
   display: flex;
   justify-content: center;
