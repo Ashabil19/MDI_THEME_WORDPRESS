@@ -39,10 +39,16 @@ if ($product_id > 0) {
 
             
 
-                <button class="btn-penawaran">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/img/detail-product/wa-penawaran-icon.svg" alt="" style="width: 14%" />
-                  <span>Minta Penawaran</span>
-                </button>
+              <a href="https://wa.me/6281944014959" target="_blank" 
+                class="btn-penawaran"
+                style="display: inline-flex; align-items: center; background: black; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 14px; gap: 10px;">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/detail-product/wa-penawaran-icon.svg" 
+                    alt="WhatsApp Icon" 
+                    style="width: 14%; height: auto;" />
+                <span>Minta Penawaran</span>
+              </a>
+
+
               </div>
               <div class="desc">
                 <?php
